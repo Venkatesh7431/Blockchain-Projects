@@ -17,3 +17,12 @@ Author- Venkatesh Dangi(Smart Contract Developer)
 
 <h4>Decentralized Voting Smart Contract 🧩</h4>
 🔗 View Live Contract: https://sepolia.etherscan.io/address/0x2bda571b1a727a92178e0956587376027cc75231#writeContract
+
+<h4>ERC-20 Token Smart Contract 🧩</h4>
+🔗 View Live Contract: https://sepolia.etherscan.io/address/0x94869af115fe22f39e1b89304a2ec62c59b519a2#readContract
+
+<h4>ERC-721 Token Smart Contract 🧩</h4>
+🔗 View Live Contract: https://sepolia.etherscan.io/address/0x0b0c4c66f5cf973300cc1bb7eed5155a5b6cc2cc#readContract
+
+<h4>ERC-1155 Multi-Token Smart Contract 🧩</h4>
+🔗 View Live Contract: https://sepolia.etherscan.io/token/0x469fc84453e98e059493bd144478863c77071b18#readContract
