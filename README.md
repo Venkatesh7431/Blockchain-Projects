@@ -7,6 +7,7 @@ Author- Venkatesh Dangi(Smart Contract Developer)
 
 <h4>Smart Contract: Counter 🧩 </h4>
 🔗 View Live Contract: https://sepolia.etherscan.io/address/0x2b1d7af886c4d8f8dc43b396196c9b100bfffa6e#readContract
+🔗 View Live dApp: https://venkatesh7431.github.io/Counter-dApp/
 
 <h4>Smart Contract: Real-World State Tracker using Solidity enums🧩 </h4>
 🔗 View Live Contract: https://sepolia.etherscan.io/address/0x38e6def172f2c7f832c1369a990a769daa40e3e2#readContract
