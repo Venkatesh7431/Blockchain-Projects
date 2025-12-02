@@ -6,7 +6,7 @@ Author- Venkatesh Dangi(Smart Contract Developer)
 <h4>Built using Remix IDE + MetaMask </h4>
 
 <h4>Smart Contract: Counter 🧩 </h4>
-🔗 View Live Contract: https://sepolia.etherscan.io/address/0x2b1d7af886c4d8f8dc43b396196c9b100bfffa6e#readContract
+🔗 View Live Contract: https://sepolia.etherscan.io/address/0x2b1d7af886c4d8f8dc43b396196c9b100bfffa6e#readContract <br>
 🔗 View Live dApp: https://venkatesh7431.github.io/Counter-dApp/
 
 <h4>Smart Contract: Real-World State Tracker using Solidity enums🧩 </h4>
