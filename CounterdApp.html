@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        #connectBtn,
+        #incrementBtn,
+        #decrementBtn {
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 7px;
+            background-color: #25b029;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="btn-container">
+        <button id="connectBtn">Connect Wallet</button>
+        <button id="incrementBtn" disabled>Increment</button>
+        <button id="decrementBtn" disabled>Decrement</button>
+        <h3>Current Count: <span id="countValue">0</span></h3>
+    </div>  
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.1/dist/ethers.umd.min.js"></script>
+    <script>
+        const contractAddress = "0x2b1D7AF886C4D8F8Dc43b396196C9B100bfFFa6E"; // 👈 Update this
+        const contractABI = [
+            "function increment() public",
+            "function decrement() public",
+            "function getCount() public view returns(uint)"
+        ];
+
+        let provider, signer, contract;
+
+        async function switchNetwork() {
+            try {
+                await ethereum.request({
+                    method: "wallet_switchEthereumChain",
+                    params: [{ chainId: "0xaa36a7" }] // Sepolia
+                });
+            } catch (error) {
+                console.log("Network switch issue:", error);
+            }
+        }
+
+        async function updateCount() {
+            const count = await contract.getCount();
+            document.getElementById("countValue").innerText = count.toString();
+        }
+
+        // 🟡 Connect Wallet
+        document.getElementById("connectBtn").onclick = async () => {
+            await switchNetwork();
+            await ethereum.request({ method: "eth_requestAccounts" });
+
+            provider = new ethers.BrowserProvider(window.ethereum);
+            signer = await provider.getSigner();
+            contract = new ethers.Contract(contractAddress, contractABI, signer);
+
+            await updateCount();
+
+            document.getElementById("incrementBtn").disabled = false;
+            document.getElementById("decrementBtn").disabled = false;
+            document.getElementById("fetchBtn").disabled = false;
+        };
+
+        // 🔼 Increment
+        document.getElementById("incrementBtn").onclick = async () => {
+            const tx = await contract.increment();
+            await tx.wait();
+            await updateCount();
+        };
+        // 🔼 Decrement
+        document.getElementById("decrementBtn").onclick = async () => {
+            const tx = await contract.decrement();
+            await tx.wait();
+            await updateCount();
+        };
+
+        // 🔍 Manual Fetch
+        document.getElementById("fetchBtn").onclick = async () => {
+            await updateCount();
+        };
+    </script>
+</body>
+
+</html>
